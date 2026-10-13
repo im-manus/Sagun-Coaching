@@ -1,0 +1,499 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sagun Coaching | UGC NET & SET Preparation</title>
+<meta name="description" content="Sagun Coaching - UGC NET, SET preparation, study notes, notifications and student success.">
+
+<style>
+:root {
+  --primary: #123b75;
+  --secondary: #f4a62a;
+  --light: #f3f7fc;
+  --dark: #17243b;
+  --white: #ffffff;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: Arial, sans-serif;
+  background: var(--light);
+  color: var(--dark);
+  line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; }
+button, input, select { font: inherit; }
+
+header {
+  background: var(--white);
+  padding: 14px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  box-shadow: 0 3px 15px #0000000d;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.logo { color: var(--primary); font-size: 25px; font-weight: 800; }
+.logo span { color: var(--secondary); }
+nav { display: flex; gap: 19px; flex-wrap: wrap; }
+nav a { font-size: 14px; font-weight: bold; }
+nav a:hover { color: #e69a16; }
+.menu-btn {
+  display: none; border: 0; background: var(--primary);
+  color: white; padding: 8px 12px; border-radius: 6px;
+}
+
+.hero {
+  padding: 75px 7%;
+  background: linear-gradient(120deg, #102e5e, #1765a3);
+  color: white;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  align-items: center;
+  gap: 35px;
+}
+.hero h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.15; }
+.hero h1 span { color: #ffc451; }
+.hero p { margin: 20px 0; color: #e5edfa; max-width: 570px; }
+.btn {
+  display: inline-block; padding: 12px 20px;
+  border-radius: 7px; font-weight: bold; border: none;
+  cursor: pointer; margin: 4px 5px 4px 0;
+}
+.btn-yellow { background: var(--secondary); color: #17243b; }
+.btn-white { background: white; color: var(--primary); }
+.hero-card {
+  background: white; color: var(--dark); border-radius: 18px;
+  padding: 28px; box-shadow: 0 15px 40px #0003;
+}
+.hero-card h2 { color: var(--primary); margin-bottom: 10px; }
+.hero-card li { margin: 9px 0 9px 20px; }
+
+.notice-bar {
+  background: #fff4d8; padding: 13px 6%;
+  border-bottom: 1px solid #ffe3a0;
+}
+.notice-bar strong { color: #8a5700; }
+
+section { padding: 55px 7%; }
+.section-title { text-align: center; margin-bottom: 30px; }
+.section-title h2 { font-size: 30px; color: var(--primary); }
+.section-title p { color: #65748b; margin-top: 5px; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.card {
+  background: white; padding: 22px; border-radius: 12px;
+  box-shadow: 0 5px 20px #18375c0b;
+  border: 1px solid #e6edf6;
+}
+.card h3 { color: var(--primary); margin-bottom: 9px; }
+.card p { color: #66748a; font-size: 14px; }
+.icon { font-size: 32px; margin-bottom: 10px; }
+
+.filters {
+  display: flex; gap: 10px; justify-content: center;
+  flex-wrap: wrap; margin-bottom: 24px;
+}
+.filters input, .filters select {
+  padding: 11px; border: 1px solid #ccd6e5;
+  border-radius: 7px; background: white; min-width: 190px;
+}
+.note-link {
+  display: inline-block; margin-top: 14px;
+  color: #1559a2; font-weight: bold;
+}
+
+.notice-item {
+  border-left: 4px solid var(--secondary);
+  margin-bottom: 14px; background: white;
+  padding: 17px 20px; border-radius: 7px;
+  box-shadow: 0 3px 12px #00000008;
+}
+.notice-item small { color: #7b8798; }
+.tag {
+  display: inline-block; padding: 3px 9px; border-radius: 20px;
+  background: #e7f1ff; color: #164a8a;
+  font-size: 12px; margin-bottom: 8px;
+}
+
+.person { text-align: center; }
+.person img {
+  width: 105px; height: 105px; border-radius: 50%;
+  object-fit: cover; margin-bottom: 12px;
+  border: 4px solid #e8f0fc;
+}
+.person .placeholder {
+  width: 105px; height: 105px; margin: 0 auto 12px;
+  border-radius: 50%; background: #e6eef9;
+  color: var(--primary); display: grid;
+  place-items: center; font-size: 36px;
+}
+
+.contact {
+  background: #e8f0fc;
+  text-align: center;
+}
+.contact p { margin: 10px 0; }
+footer {
+  background: #0b2042; color: white;
+  text-align: center; padding: 24px 6%;
+}
+footer p { font-size: 13px; color: #d1dcee; }
+
+.popup {
+  position: fixed; inset: 0; background: #07162dcc;
+  z-index: 30; display: none; align-items: center;
+  justify-content: center; padding: 20px;
+}
+.popup-content {
+  background: white; padding: 28px; border-radius: 15px;
+  width: 100%; max-width: 410px; text-align: center;
+}
+.popup-content h2 { color: var(--primary); }
+.popup-content p { margin: 12px 0; }
+.close {
+  float: right; border: 0; background: none;
+  font-size: 24px; cursor: pointer;
+}
+.whatsapp {
+  position: fixed; right: 18px; bottom: 18px; z-index: 9;
+  background: #159b55; color: white; border-radius: 30px;
+  padding: 12px 17px; font-weight: bold;
+}
+
+@media(max-width:850px) {
+  .hero { grid-template-columns: 1fr; padding: 50px 6%; }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  header { flex-wrap: wrap; }
+  nav { gap: 12px; }
+}
+@media(max-width:600px) {
+  .menu-btn { display: block; }
+  nav { display: none; width: 100%; flex-direction: column; }
+  nav.show { display: flex; }
+  nav a { padding: 5px 0; }
+  .grid { grid-template-columns: 1fr; }
+  section { padding: 40px 5%; }
+  .section-title h2 { font-size: 25px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="#home" class="logo">SAGUN <span>COACHING</span></a>
+  <button class="menu-btn" onclick="toggleMenu()">☰ Menu</button>
+  <nav id="nav">
+    <a href="#home">Home</a>
+    <a href="#courses">Courses</a>
+    <a href="#notes">Study Notes</a>
+    <a href="#notifications">Notifications</a>
+    <a href="#teachers">Teachers</a>
+    <a href="#students">Students</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="notice-bar">
+  <strong>📢 Latest Update:</strong>
+  <span id="ticker">Welcome to Sagun Coaching — UGC NET & SET preparation.</span>
+</div>
+
+<main>
+<section class="hero" id="home">
+  <div>
+    <p>WELCOME TO SAGUN COACHING</p>
+    <h1>Learn Today,<br><span>Lead Tomorrow.</span></h1>
+    <p>
+      Your learning partner for UGC NET and SET examination preparation.
+      Get study notes, important updates and guidance in one place.
+    </p>
+    <a class="btn btn-yellow" href="#notes">Explore Study Notes</a>
+    <a class="btn btn-white" href="#contact">Contact Us</a>
+  </div>
+  <div class="hero-card">
+    <h2>🎓 Prepare With Confidence</h2>
+    <p>Everything you need to organise your exam preparation.</p>
+    <ul>
+      <li>UGC NET & SET study materials</li>
+      <li>Subject-wise notes and PDFs</li>
+      <li>Exam and class notifications</li>
+      <li>Teacher guidance and student updates</li>
+    </ul>
+  </div>
+</section>
+
+<section id="courses">
+  <div class="section-title">
+    <h2>Our Courses</h2>
+    <p>Choose your examination preparation path.</p>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="icon">📘</div>
+      <h3>UGC NET Preparation</h3>
+      <p>Paper 1 and subject-specific learning materials.</p>
+      <a class="note-link" href="#notes">View Notes →</a>
+    </div>
+    <div class="card">
+      <div class="icon">📚</div>
+      <h3>SET Preparation</h3>
+      <p>Study resources and updates for SET aspirants.</p>
+      <a class="note-link" href="#notes">View Notes →</a>
+    </div>
+    <div class="card">
+      <div class="icon">📝</div>
+      <h3>Practice & Revision</h3>
+      <p>Revision materials, practice questions and exam tips.</p>
+      <a class="note-link" href="#notes">Start Learning →</a>
+    </div>
+  </div>
+</section>
+
+<section id="notes">
+  <div class="section-title">
+    <h2>Study Notes & Materials</h2>
+    <p>Find notes by subject or topic.</p>
+  </div>
+
+  <div class="filters">
+    <input id="searchNote" type="search"
+      placeholder="Search notes..."
+      oninput="filterNotes()">
+    <select id="subjectFilter" onchange="filterNotes()">
+      <option value="all">All Subjects</option>
+      <option value="paper1">UGC NET Paper 1</option>
+      <option value="santali">Santali</option>
+      <option value="set">SET Preparation</option>
+    </select>
+  </div>
+
+  <div class="grid" id="notesGrid">
+    <div class="card note" data-subject="paper1">
+      <span class="tag">UGC NET Paper 1</span>
+      <h3>Teaching Aptitude</h3>
+      <p>Teaching methods, learner characteristics and important concepts.</p>
+      <a class="note-link"
+        href="notes/teaching-aptitude.pdf" target="_blank">
+        Open / Download PDF →
+      </a>
+    </div>
+
+    <div class="card note" data-subject="paper1">
+      <span class="tag">UGC NET Paper 1</span>
+      <h3>Research Aptitude</h3>
+      <p>Research methods, types of research and basic concepts.</p>
+      <a class="note-link"
+        href="notes/research-aptitude.pdf" target="_blank">
+        Open / Download PDF →
+      </a>
+    </div>
+
+    <div class="card note" data-subject="santali">
+      <span class="tag">Santali</span>
+      <h3>Santali Literature</h3>
+      <p>Literary history, writers and important literary topics.</p>
+      <a class="note-link"
+        href="notes/santali-literature.pdf" target="_blank">
+        Open / Download PDF →
+      </a>
+    </div>
+
+    <div class="card note" data-subject="set">
+      <span class="tag">SET</span>
+      <h3>Practice Questions</h3>
+      <p>Practice materials for revision and exam preparation.</p>
+      <a class="note-link"
+        href="notes/set-practice.pdf" target="_blank">
+        Open / Download PDF →
+      </a>
+    </div>
+  </div>
+  <p id="noNotes" style="display:none;text-align:center;margin-top:20px">
+    No matching notes found.
+  </p>
+</section>
+
+<section id="notifications">
+  <div class="section-title">
+    <h2>Latest Notifications</h2>
+    <p>Important announcements from Sagun Coaching.</p>
+  </div>
+  <div id="noticeList">
+    <div class="notice-item">
+      <span class="tag">Welcome</span>
+      <h3>Welcome to Sagun Coaching</h3>
+      <p>Visit our website regularly for study materials and announcements.</p>
+      <small>Website Announcement</small>
+    </div>
+    <div class="notice-item">
+      <span class="tag">Study Update</span>
+      <h3>Study Materials Section</h3>
+      <p>Subject-wise notes will be added here. Check back for new resources.</p>
+      <small>Study Resources</small>
+    </div>
+  </div>
+</section>
+
+<section id="teachers">
+  <div class="section-title">
+    <h2>Meet Our Teachers</h2>
+    <p>Guidance and support for your learning journey.</p>
+  </div>
+  <div class="grid">
+    <div class="card person">
+      <div class="placeholder">👨‍🏫</div>
+      <h3>Teacher Name</h3>
+      <p>Subject: Add Subject</p>
+      <p>Replace this section with the teacher's real photo and details.</p>
+    </div>
+    <div class="card person">
+      <div class="placeholder">👩‍🏫</div>
+      <h3>Teacher Name</h3>
+      <p>Subject: Add Subject</p>
+      <p>Add the teacher's qualifications and experience.</p>
+    </div>
+    <div class="card person">
+      <div class="placeholder">🎓</div>
+      <h3>Faculty Member</h3>
+      <p>Subject: Add Subject</p>
+      <p>Personalise this card with verified information.</p>
+    </div>
+  </div>
+</section>
+
+<section id="students">
+  <div class="section-title">
+    <h2>Our Students</h2>
+    <p>Meet our learners and celebrate their achievements.</p>
+  </div>
+  <div class="grid">
+    <div class="card person">
+      <div class="placeholder">🧑‍🎓</div>
+      <h3>Student Name</h3>
+      <p>Course: UGC NET / SET</p>
+      <p>Achievement: Add verified result</p>
+    </div>
+    <div class="card person">
+      <div class="placeholder">👩‍🎓</div>
+      <h3>Student Name</h3>
+      <p>Course: UGC NET / SET</p>
+      <p>Achievement: Add verified result</p>
+    </div>
+    <div class="card person">
+      <div class="placeholder">🎓</div>
+      <h3>Student Name</h3>
+      <p>Course: UGC NET / SET</p>
+      <p>Achievement: Add verified result</p>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:18px;color:#65748b;font-size:13px">
+    Publish student photographs and results only with their permission.
+  </p>
+</section>
+
+<section class="contact" id="contact">
+  <div class="section-title">
+    <h2>Contact Sagun Coaching</h2>
+    <p>Need information about courses or study materials?</p>
+  </div>
+  <p><strong>📍 Address:</strong> Add your coaching address</p>
+  <p><strong>📞 Phone:</strong> Add your contact number</p>
+  <p><strong>✉️ Email:</strong> Add your email address</p>
+  <a class="btn btn-yellow" id="contactWhatsApp"
+     href="https://wa.me/91XXXXXXXXXX" target="_blank">
+    Contact on WhatsApp
+  </a>
+</section>
+</main>
+
+<footer>
+  <h3>SAGUN COACHING</h3>
+  <p>UGC NET & SET Examination Preparation</p>
+  <p>© <span id="year"></span> Sagun Coaching. All rights reserved.</p>
+</footer>
+
+<div class="popup" id="welcomePopup">
+  <div class="popup-content">
+    <button class="close" onclick="closePopup()" aria-label="Close">×</button>
+    <h2>🎓 Welcome to Sagun Coaching!</h2>
+    <p>Explore study notes, examination resources and coaching updates.</p>
+    <a class="btn btn-yellow" href="#notes" onclick="closePopup()">
+      Explore Notes
+    </a>
+  </div>
+</div>
+
+<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX"
+   target="_blank" aria-label="Contact us on WhatsApp">WhatsApp</a>
+
+<script>
+function toggleMenu() {
+  document.getElementById("nav").classList.toggle("show");
+}
+
+document.querySelectorAll("#nav a").forEach(function(link) {
+  link.addEventListener("click", function() {
+    document.getElementById("nav").classList.remove("show");
+  });
+});
+
+function filterNotes() {
+  const query = document.getElementById("searchNote").value.toLowerCase();
+  const subject = document.getElementById("subjectFilter").value;
+  const notes = document.querySelectorAll(".note");
+  let visible = 0;
+
+  notes.forEach(function(note) {
+    const matchesText = note.innerText.toLowerCase().includes(query);
+    const matchesSubject =
+      subject === "all" || note.dataset.subject === subject;
+    const show = matchesText && matchesSubject;
+
+    note.style.display = show ? "" : "none";
+    if (show) visible++;
+  });
+
+  document.getElementById("noNotes").style.display =
+    visible ? "none" : "block";
+}
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const announcements = [
+  "Welcome to Sagun Coaching — UGC NET & SET preparation.",
+  "Check the Study Notes section for learning resources.",
+  "Visit Notifications for the latest coaching announcements."
+];
+
+let announcementIndex = 0;
+setInterval(function() {
+  announcementIndex = (announcementIndex + 1) % announcements.length;
+  document.getElementById("ticker").textContent =
+    announcements[announcementIndex];
+}, 4000);
+
+function closePopup() {
+  document.getElementById("welcomePopup").style.display = "none";
+}
+
+// Demo popup appears 1.5 seconds after the page loads.
+window.addEventListener("load", function() {
+  setTimeout(function() {
+    document.getElementById("welcomePopup").style.display = "flex";
+  }, 1500);
+});
+</script>
+
+</body>
+</html>
